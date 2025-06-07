@@ -6,7 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Create messages table if it doesn't exist
 const createTable = async () => {
   try {
     await db.query(`
@@ -26,7 +25,6 @@ const createTable = async () => {
 
 createTable();
 
-// Handle contact form submissions
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, message } = req.body;
